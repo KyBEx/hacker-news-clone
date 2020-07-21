@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 li {
   list-style: none;
 }
@@ -5,6 +9,17 @@ li {
 .row {
   display: flex;
   flex-direction: row;
+  padding-inline-start: 0px;
+}
+
+.container {
+  min-height: 100%;
+  padding: 25px;
+}
+
+.dark {
+  background-color: black;
+  color: gainsboro;
 }
 
 .space-between {
@@ -17,4 +32,15 @@ li {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+}
+
+.nav-btn {
+  font-size: 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-btn:focus {
+  outline: none;
 }

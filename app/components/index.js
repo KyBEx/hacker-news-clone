@@ -1,3 +1,3 @@
-export { default as Nav } from "./Nav.js";
-export { default as New } from "./New.js";
-export { default as Top } from "./Top.js";
+export { default as Nav } from "./Nav";
+export { default as New } from "./New";
+export { default as Top } from "./Top";
