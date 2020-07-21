@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Nav, Top, New } from "./components";
+import { Nav, Top, New, Metadata, User, Post } from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "./context/Theme";
 import "./index.css";
@@ -25,6 +25,8 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Top} />
               <Route exact path="/new" component={New} />
+              <Route exact path="/post" component={Post} />
+              <Route exact path="/user" component={User} />
               <Route render={() => <h1>404 not found!!!</h1>} />
             </Switch>
           </div>
