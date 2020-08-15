@@ -18,13 +18,13 @@ export function getNewOrTop(type) {
   });
 }
 
-function getItemById(id) {
+export function getItemById(id) {
   return new Promise((resolve, reject) => {
     fetch(`${url}/item/${id}.json`)
       .then((data) => {
         if (!data.ok) {
           reject(
-            `Error fetching story ${id}. Reason: ${data.status} ${data.statusText}`
+            `Error fetching item ${id}. Reason: ${data.status} ${data.statusText}`
           );
         }
         return data.json();
