@@ -6,6 +6,20 @@ li {
   list-style: none;
 }
 
+.med-padding {
+  padding-bottom: 10px;
+}
+
+.sml-padding {
+  padding-bottom: 5px;
+}
+
+.bold-red {
+  color: rgb(187, 46, 31);
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -31,6 +45,10 @@ li {
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
+  color: inherit;
+}
+
+.meta-link {
   color: inherit;
 }
 
