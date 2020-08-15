@@ -12,16 +12,32 @@ export default function Metadata({
   url,
 }) {
   return (
-    <div>
-      by {<NavLink to={`/user?id=${by}`}>{by}</NavLink>} on {""}
-      {time}{" "}
+    <div className="med-padding">
       {title && (
-        <span>
-          <NavLink to={`/post?id=${id}`}>{title}</NavLink>
-          {descendants}
-          comments
-        </span>
+        <div className="sml-padding">
+          <a className="bold-red" href={url} target="_blank">
+            {title}
+          </a>
+        </div>
       )}
+      <div>
+        by{" "}
+        {
+          <NavLink className="meta-link" to={`/user?id=${by}`}>
+            {by}
+          </NavLink>
+        }{" "}
+        on {""}
+        {time}{" "}
+        {descendants && (
+          <span>
+            <NavLink className="meta-link" to={`/post?id=${id}`}>
+              {descendants}
+            </NavLink>{" "}
+            comments
+          </span>
+        )}
+      </div>
     </div>
   );
 }
