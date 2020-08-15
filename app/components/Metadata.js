@@ -2,14 +2,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function Metadata({ user, date, post = {} }) {
+export default function Metadata({
+  by,
+  time,
+  descendants,
+  id,
+  score,
+  title,
+  url,
+}) {
   return (
     <div>
-      by {<NavLink to={`/user?id=${user.id}`}>{user.username}</NavLink>} on{" "}
-      {date}{" "}
-      {Object.keys(post).length > 0 && (
+      by {<NavLink to={`/user?id=${by}`}>{by}</NavLink>} on {""}
+      {time}{" "}
+      {title && (
         <span>
-          <NavLink to={`/post?id=${post.id}`}>{post.comments.length}</NavLink>{" "}
+          <NavLink to={`/post?id=${id}`}>{title}</NavLink>
+          {descendants}
           comments
         </span>
       )}
@@ -18,7 +27,10 @@ export default function Metadata({ user, date, post = {} }) {
 }
 
 Metadata.proptypes = {
-  user: PropTypes.object.isRequired,
-  data: PropTypes.string.isRequired,
-  post: PropTypes.object,
+  by: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  score: PropTypes.number,
+  url: PropTypes.string,
+  descendants: PropTypes.number,
 };
