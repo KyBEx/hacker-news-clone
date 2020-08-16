@@ -64,9 +64,17 @@ li {
 }
 
 .comment {
-  background: lightgray;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.comment-color-light {
+  background: lightgray;
+}
+
+.comment-color-dark {
+  background: rgba(128, 128, 128, 0.25);
+  color: gainsboro;
 }
 
 .comment p {
