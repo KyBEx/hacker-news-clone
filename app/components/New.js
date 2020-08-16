@@ -12,7 +12,7 @@ export default class New extends React.Component {
   componentDidMount() {
     getNewOrTop("newstories")
       .then((data) => this.setState({ posts: data }))
-      .catch((err) => console.log("err in component did mount", err));
+      .catch((err) => console.error("err in component did mount", err));
   }
 
   render() {

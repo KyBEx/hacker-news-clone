@@ -3,7 +3,6 @@ import Metadata from "./Metadata";
 import { ThemeConsumer } from "../context/Theme";
 
 export default function Comment(props) {
-  console.log("props.text", typeof props.text);
   return (
     <ThemeConsumer>
       {({ theme }) => (

@@ -11,7 +11,6 @@ export default class Post extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount firing");
     const postId = this.props.location.search.slice(
       this.props.location.search.indexOf("=") + 1
     );
@@ -28,7 +27,7 @@ export default class Post extends React.Component {
         );
       },
       (err) => {
-        console.log("Error fetching post", err);
+        console.error("Error fetching post", err);
       }
     );
   }
