@@ -14,7 +14,7 @@ export default function Metadata({
 }) {
   return (
     <div className="med-padding">
-      {title && (
+      {type === "story" && title && (
         <div className="sml-padding">
           {url ? (
             <a className="bold-red" href={url} target="_blank">

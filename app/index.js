@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Nav, Top, New, Metadata, User, Post } from "./components";
+import { Nav, Top, New, User, Post } from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "./context/Theme";
 import "./index.css";

@@ -1,5 +1,7 @@
 import React from "react";
 import { getItemById, getComments } from "../utils/api";
+import Metadata from "./Metadata";
+import Comment from "./Comment";
 
 export default class Post extends React.Component {
   state = {
@@ -32,6 +34,13 @@ export default class Post extends React.Component {
   }
 
   render() {
-    return <div>Post Placeholder</div>;
+    return (
+      <>
+        <Metadata {...this.state.post} />
+        {this.state.comments.map((comment) => (
+          <Comment key={comment.id} {...comment} />
+        ))}
+      </>
+    );
   }
 }
