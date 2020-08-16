@@ -11,17 +11,25 @@ export default function Metadata({
   type,
   title,
   url,
+  style,
 }) {
   return (
     <div className="med-padding">
       {type === "story" && title && (
         <div className="sml-padding">
           {url ? (
-            <a className="bold-red" href={url} target="_blank">
+            <a
+              className={`bold-red ${style ? "big-title" : ""}`}
+              href={url}
+              target="_blank"
+            >
               {title}
             </a>
           ) : (
-            <NavLink className="bold-red" to={`/post?id=${id}`}>
+            <NavLink
+              className={`bold-red ${style ? "big-title" : ""}`}
+              to={`/post?id=${id}`}
+            >
               {title}
             </NavLink>
           )}
@@ -56,4 +64,5 @@ Metadata.proptypes = {
   type: PropTypes.string,
   url: PropTypes.string,
   descendants: PropTypes.number,
+  style: PropTypes.string,
 };

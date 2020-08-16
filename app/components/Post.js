@@ -36,7 +36,8 @@ export default class Post extends React.Component {
   render() {
     return (
       <>
-        <Metadata {...this.state.post} />
+        <Metadata style="big" {...this.state.post} />
+        <br></br>
         {this.state.comments.map((comment) => (
           <Comment key={comment.id} {...comment} />
         ))}

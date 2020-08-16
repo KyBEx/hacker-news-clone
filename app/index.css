@@ -80,3 +80,11 @@ li {
 .comment p {
   margin-top: 0;
 }
+
+.big-title {
+  font-size: 32px;
+}
+
+.big-by {
+  font-size: 16px;
+}
