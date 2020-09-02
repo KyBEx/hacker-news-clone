@@ -35,7 +35,7 @@ export function getItemById(id) {
 
 export function getUser(id) {
   return new Promise((resolve, reject) => {
-    fetch(`${url}/user/${id}`)
+    fetch(`${url}/user/${id}.json`)
       .then((data) => {
         if (!data.ok) {
           reject(

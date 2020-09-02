@@ -1,5 +1,6 @@
 import React from "react";
 import { getItemById, getComments } from "../utils/api";
+import { getIdFromURL } from "../utils/helper-functions";
 import Metadata from "./Metadata";
 import Comment from "./Comment";
 
@@ -11,9 +12,7 @@ export default class Post extends React.Component {
   };
 
   componentDidMount() {
-    const postId = this.props.location.search.slice(
-      this.props.location.search.indexOf("=") + 1
-    );
+    const postId = getIdFromURL(this.props.location.search);
     getItemById(postId).then(
       (data) => {
         if (!data.kids) {

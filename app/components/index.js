@@ -5,3 +5,5 @@ export { default as Metadata } from "./Metadata";
 export { default as User } from "./User";
 export { default as Post } from "./Post";
 export { default as Comment } from "./Comment";
+export { default as PostSummary } from "./PostSummary";
+export { default as UserSummary } from "./UserSummary";
