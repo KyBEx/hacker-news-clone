@@ -1,27 +1,40 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import Nav from "./Nav";
+import { convertDateString } from "../utils/helper-functions";
+
+// kids is an array of the top level comments
+// descendants is a count of the actual comments, including replies to comments
+// for now, only reflecting the count of top level comments, as those are what appear
 
 export default function Metadata({
   by,
   time,
   descendants,
+  kids,
   id,
   type,
   title,
   url,
+  style,
 }) {
   return (
     <div className="med-padding">
-      {title && (
+      {type === "story" && title && (
         <div className="sml-padding">
           {url ? (
-            <a className="bold-red" href={url} target="_blank">
+            <a
+              className={`bold-red ${style ? "big-title" : ""}`}
+              href={url}
+              target="_blank"
+            >
               {title}
             </a>
           ) : (
-            <NavLink className="bold-red" to={`/post?id=${id}`}>
+            <NavLink
+              className={`bold-red ${style ? "big-title" : ""}`}
+              to={`/post?id=${id}`}
+            >
               {title}
             </NavLink>
           )}
@@ -35,11 +48,11 @@ export default function Metadata({
           </NavLink>
         }{" "}
         on {""}
-        {time}{" "}
+        {convertDateString(time)}{" "}
         {type === "story" && (
           <span>
             <NavLink className="meta-link" to={`/post?id=${id}`}>
-              {descendants}
+              {kids.length}
             </NavLink>{" "}
             comments
           </span>
@@ -56,4 +69,6 @@ Metadata.proptypes = {
   type: PropTypes.string,
   url: PropTypes.string,
   descendants: PropTypes.number,
+  style: PropTypes.string,
+  kids: PropTypes.array,
 };
