@@ -5,9 +5,9 @@ import { convertDateString } from "../utils/helper-functions";
 export default function Metadata({ id, created, karma, about }) {
   return (
     <>
-      <div>{id}</div>
-      <div>
-        joined {convertDateString(created)} has {karma} karma
+      <div className="user-name">{id}</div>
+      <div className="user-meta-data">
+        joined <b>{convertDateString(created)}</b> has <b>{karma}</b> karma
       </div>
       <br></br>
       {about && <div dangerouslySetInnerHTML={{ __html: about }}></div>}

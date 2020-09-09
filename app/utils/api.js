@@ -49,7 +49,9 @@ export function getUser(id) {
 }
 
 export function getUserPosts(ids) {
-  return Promise.all(ids.map(getItemById));
+  return Promise.all(ids.map(getItemById)).then((posts) =>
+    removeDeleted(onlyStories(removeDead(posts)))
+  );
 }
 
 export function getComments(ids) {
@@ -68,4 +70,8 @@ function removeDeleted(posts) {
 
 function onlyComments(posts) {
   return posts.filter(({ type }) => type === "comment");
+}
+
+function onlyStories(posts) {
+  return posts.filter(({ type }) => type === "story");
 }

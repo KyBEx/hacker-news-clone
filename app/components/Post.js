@@ -13,22 +13,26 @@ export default class Post extends React.Component {
 
   componentDidMount() {
     const postId = getIdFromURL(this.props.location.search);
-    getItemById(postId).then(
-      (data) => {
-        if (!data.kids) {
-          return this.setState({ post: data, loading: false });
+    getItemById(postId)
+      .then(
+        (data) => {
+          this.setState({ post: data, loading: !!data.kids });
+          return data.kids;
+        },
+        (err) => {
+          console.error("Error fetching post", err);
         }
-        getComments(data.kids).then(
-          (comments) => {
-            this.setState({ post: data, comments, loading: false });
-          },
-          (err) => console.log("Error fetching comments", err)
-        );
-      },
-      (err) => {
-        console.error("Error fetching post", err);
-      }
-    );
+      )
+      .then((kids) => {
+        if (kids) {
+          getComments(kids).then(
+            (comments) => {
+              this.setState({ comments, loading: false });
+            },
+            (err) => console.log("Error fetching comments", err)
+          );
+        }
+      });
   }
 
   render() {
