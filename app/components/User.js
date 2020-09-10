@@ -3,6 +3,7 @@ import { getIdFromURL } from "../utils/helper-functions";
 import { getUser, getUserPosts } from "../utils/api";
 import UserSummary from "./UserSummary";
 import Metadata from "./Metadata";
+import Loading from "./Loading";
 
 export default class User extends React.Component {
   state = {
@@ -16,7 +17,6 @@ export default class User extends React.Component {
 
   componentDidMount() {
     const userId = getIdFromURL(this.props.location.search);
-    console.log("userID", userId);
     getUser(userId)
       .then(
         (data) => {
@@ -48,11 +48,17 @@ export default class User extends React.Component {
   render() {
     return (
       <>
-        <UserSummary {...this.state} />
-        <br></br>
-        {this.state.posts.map((post) => (
-          <Metadata key={post.id} {...post} />
-        ))}
+        {this.state.loading ? (
+          <Loading />
+        ) : (
+          <>
+            <UserSummary {...this.state} />
+            <br></br>
+            {this.state.posts.map((post) => (
+              <Metadata key={post.id} {...post} />
+            ))}
+          </>
+        )}
       </>
     );
   }

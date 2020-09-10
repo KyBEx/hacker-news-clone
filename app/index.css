@@ -96,3 +96,9 @@ li {
 .user-meta-data {
   color: gray;
 }
+
+.loading-widget {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 35px;
+}

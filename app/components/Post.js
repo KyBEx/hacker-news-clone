@@ -3,6 +3,7 @@ import { getItemById, getComments } from "../utils/api";
 import { getIdFromURL } from "../utils/helper-functions";
 import Metadata from "./Metadata";
 import Comment from "./Comment";
+import Loading from "./Loading";
 
 export default class Post extends React.Component {
   state = {
@@ -38,11 +39,17 @@ export default class Post extends React.Component {
   render() {
     return (
       <>
-        <Metadata style="big" {...this.state.post} />
-        <br></br>
-        {this.state.comments.map((comment) => (
-          <Comment key={comment.id} {...comment} />
-        ))}
+        {this.state.loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Metadata style="big" {...this.state.post} />
+            <br></br>
+            {this.state.comments.map((comment) => (
+              <Comment key={comment.id} {...comment} />
+            ))}
+          </>
+        )}
       </>
     );
   }

@@ -7,3 +7,4 @@ export { default as Post } from "./Post";
 export { default as Comment } from "./Comment";
 export { default as PostSummary } from "./PostSummary";
 export { default as UserSummary } from "./UserSummary";
+export { default as Loading } from "./Loading";
