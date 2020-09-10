@@ -52,7 +52,7 @@ export default function Metadata({
         {type === "story" && (
           <span>
             <NavLink className="meta-link" to={`/post?id=${id}`}>
-              {kids.length}
+              {kids && kids.length ? kids.length : "0"}
             </NavLink>{" "}
             comments
           </span>

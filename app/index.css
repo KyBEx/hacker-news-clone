@@ -88,3 +88,11 @@ li {
 .big-by {
   font-size: 16px;
 }
+
+.user-name {
+  font-size: 32px;
+  font-weight: bold;
+}
+.user-meta-data {
+  color: gray;
+}

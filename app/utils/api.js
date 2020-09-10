@@ -35,7 +35,7 @@ export function getItemById(id) {
 
 export function getUser(id) {
   return new Promise((resolve, reject) => {
-    fetch(`${url}/user/${id}`)
+    fetch(`${url}/user/${id}.json`)
       .then((data) => {
         if (!data.ok) {
           reject(
@@ -49,7 +49,9 @@ export function getUser(id) {
 }
 
 export function getUserPosts(ids) {
-  return Promise.all(ids.map(getItemById));
+  return Promise.all(ids.map(getItemById)).then((posts) =>
+    removeDeleted(onlyStories(removeDead(posts)))
+  );
 }
 
 export function getComments(ids) {
@@ -68,4 +70,8 @@ function removeDeleted(posts) {
 
 function onlyComments(posts) {
   return posts.filter(({ type }) => type === "comment");
+}
+
+function onlyStories(posts) {
+  return posts.filter(({ type }) => type === "story");
 }
